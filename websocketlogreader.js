@@ -76,52 +76,11 @@
                 return $.websocketlogreader($(this), command, Array.prototype.slice.call(arguments, 1));
             }
         });
-        $.websocketlogreader.props = {   //  Here you can establish specific properties to your plugin, prehaps even make them "Over-writable"
-            key1: "value",
-            key2: "value"
-        };
-        $.websocketlogreader.methods = { //  Here you can establish specific methods/functions for your plguin to carry out and maintain your namespace as well
-            key1: function(param) {
-                /*  do work */
-            },
-            key2: function(param) {
-                /*  do work */
-            }
-        };
-        //  This next part is not seen in many plugins but useful depending on what you're creating
-        $.websocketlogreader.init = function(param) {    //  If you have an initialize method to apply, namespace it in here and calll on initializing your plugin
-            var key = "value",
-                key2 = {
-                    subKey: "value"
-                };
-                /*
-                /  run any number of initializing functions here
-                /  I prefer to make my param a value that can be a
-                /   string with a possible object
-                /   the string for holding a base configuration
-                /   the object for any change in properties or base values for that config
-                */
-        };
         $.websocketlogreader.isAvailable = function(param) {
             if(window.WebSocket || window.MozWebSocket){
                 return true;
             }else{
                 return false;
-            }
-        };
-        $.websocketlogreader.defaults = {    //  establish base properties here that can be over-written via .props, but their values should never truly change
-            key1: "value",
-            key2: {
-                prop1: {
-                    subKey1: "value",
-                    subKey2: "value"
-                },
-                prop2: {
-                    subKey1: "value"
-                }
-            },
-            key3: function(param) {
-
             }
         };
     }
